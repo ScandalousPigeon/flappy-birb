@@ -10,7 +10,14 @@ import javafx.scene.layout.Pane;
 
 import javafx.scene.shape.Rectangle;
 import java.io.IOException;
+import java.util.Objects;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+
+// Mix flappy bird and chess? When the bird hits the piece the piece has to move?
+// Maybe let the user jump, then when he gets to a piece he press E to select it and then E to move it to a square?
 public class FlappyApp extends Application {
 
     double velocityY = 0;
@@ -18,11 +25,24 @@ public class FlappyApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         stage.setTitle("Flappy Birb");
-        Rectangle bird = new Rectangle(50, 50);
-        bird.setX(200);
-        bird.setY(200);
 
-        Pane root = new Pane(bird);
+        Image bgImage = new Image(
+                Objects.requireNonNull(
+                        getClass().getResource("/images/background.png")
+                ).toExternalForm()
+        );
+
+        ImageView background = new ImageView(bgImage);
+
+        background.setFitWidth(800);
+        background.setFitHeight(600);
+
+        Image birdImage = new Image(getClass().getResource("/images/bird.jpeg").toExternalForm());
+        ImageView bird = new ImageView(birdImage);
+        bird.setFitWidth(50);
+        bird.setFitHeight(50);
+
+        Pane root = new Pane(background, bird);
         Scene scene = new Scene(root, 800, 600);
 
         stage.setScene(scene);
