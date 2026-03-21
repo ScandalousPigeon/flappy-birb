@@ -34,7 +34,18 @@ public class GameController {
             if (event.getCode() == KeyCode.SPACE) {
                 bird.jump();
             }
+
+            if (event.getCode() == KeyCode.A) {
+                bird.dashLeft();
+            }
+
+            if (event.getCode() == KeyCode.D) {
+                bird.dashRight();
+            }
+
         });
+
+
     }
 
     public void startGameLoop() {
@@ -48,6 +59,10 @@ public class GameController {
                 }
 
                 birdView.render(bird);
+
+                if (bird.getY() + bird.getHeight() >= WINDOW_HEIGHT) {
+                    bird.setY(WINDOW_HEIGHT - bird.getHeight());
+                }
             }
         };
 

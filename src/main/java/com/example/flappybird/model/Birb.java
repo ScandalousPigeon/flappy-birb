@@ -3,6 +3,7 @@ package com.example.flappybird.model;
 public class Birb {
     private double x;
     private double y;
+    private double velocityX;
     private double velocityY;
 
     private final double width;
@@ -13,15 +14,28 @@ public class Birb {
         this.y = y;
         this.width = width;
         this.height = height;
+        this.velocityX = 0;
         this.velocityY = 0;
     }
 
     public void jump() {
-        velocityY = -8;
+        velocityY = -0.4;
     }
 
+    public void dashLeft() {
+        velocityX = -0.5;
+    }
+
+    public void dashRight() { velocityX = 0.5; }
+
     public void update() {
-        velocityY += 0.4; // gravity
+        velocityY += 0.0004; // gravity
+        if (velocityX < 0) {
+            velocityX += 0.001;
+        } else if (velocityX > 0) {
+            velocityX -= 0.001;
+        }
+        x += velocityX;
         y += velocityY;
     }
 
@@ -48,4 +62,6 @@ public class Birb {
     public void setY(double y) {
         this.y = y;
     }
+
+    public void setVelocityX(double x) { this.velocityX = x; }
 }
