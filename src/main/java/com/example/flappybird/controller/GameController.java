@@ -9,7 +9,7 @@ import javafx.scene.input.KeyCode;
 
 public class GameController {
     private static final int WINDOW_WIDTH = 800;
-    private static final int WINDOW_HEIGHT = 600;
+    private static final int WINDOW_HEIGHT = 800;
 
     private final Birb bird;
     private final BirbView birdView;

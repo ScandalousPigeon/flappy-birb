@@ -31,9 +31,9 @@ public class Birb {
     public void update() {
         velocityY += 0.0004; // gravity
         if (velocityX < 0) {
-            velocityX += 0.001;
+            velocityX += 0.0001;
         } else if (velocityX > 0) {
-            velocityX -= 0.001;
+            velocityX -= 0.0001;
         }
         x += velocityX;
         y += velocityY;

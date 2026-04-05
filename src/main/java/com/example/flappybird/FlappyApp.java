@@ -10,12 +10,12 @@ public class FlappyApp extends Application {
     public void start(Stage stage) {
         GameController controller = new GameController();
 
-        Scene scene = new Scene(controller.getGameView().getRoot(), 800, 600);
+        Scene scene = new Scene(controller.getGameView().getRoot(), 800, 800);
 
         controller.setupInput(scene);
         controller.startGameLoop();
 
-        stage.setTitle("Flappy Bird");
+        stage.setTitle("Flappy Chess");
         stage.setScene(scene);
         stage.show();
     }

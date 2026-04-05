@@ -1,6 +1,7 @@
 module com.example.flappybird {
     requires javafx.controls;
     requires javafx.fxml;
+    requires chesslib;
 
     requires com.almasb.fxgl.all;
     requires java.desktop;
