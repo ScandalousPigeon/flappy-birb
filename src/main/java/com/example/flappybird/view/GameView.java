@@ -5,9 +5,13 @@ import javafx.scene.layout.Pane;
 public class GameView {
     private final Pane root;
 
-    public GameView(BirbView birdView) {
+    public GameView(ChessBoardView chessBoardView, BirbView birdView) {
         root = new Pane();
-        root.getChildren().add(birdView.getNode());
+
+        root.getChildren().addAll(
+                chessBoardView.getNode(),
+                birdView.getNode()
+        );
     }
 
     public Pane getRoot() {

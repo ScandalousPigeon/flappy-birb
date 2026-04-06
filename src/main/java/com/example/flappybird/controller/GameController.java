@@ -2,6 +2,7 @@ package com.example.flappybird.controller;
 
 import com.example.flappybird.model.Birb;
 import com.example.flappybird.view.BirbView;
+import com.example.flappybird.view.ChessBoardView;
 import com.example.flappybird.view.GameView;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
@@ -14,6 +15,9 @@ public class GameController {
     private final Birb bird;
     private final BirbView birdView;
     private final GameView gameView;
+    private final ChessBoardView chessView;
+
+    private final ChessController chessController;
 
     public GameController() {
         bird = new Birb(
@@ -23,8 +27,11 @@ public class GameController {
                 50
         );
 
+        chessController = new ChessController();
+
         birdView = new BirbView();
-        gameView = new GameView(birdView);
+        chessView = new ChessBoardView();
+        gameView = new GameView(chessView, birdView);
 
         birdView.render(bird);
     }
